@@ -9,7 +9,7 @@ class Sensor(models.Model):
 
 
 class Measurement(models.Model):
-    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE)
+    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE, related_name='measurements')
     temperature = models.FloatField('Температура помещения')
     measurement_time = models.DateTimeField('Время измерения', auto_now_add=True)
     image = models.ImageField('Снимок датчика', null=True, blank=True)
